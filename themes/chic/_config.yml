@@ -3,10 +3,10 @@ navname: AGPU
 
 # navigatior items
 nav:
-  Posts: /archives
-  Categories: /category
-  Tags: /tag
-  About: /about
+  Posts: /blog/archives
+  Categories: /blog/category
+  Tags: /blog/tag
+  About: /blog/about
 
 # favicon
 favicon: /favicon.ico
@@ -49,7 +49,7 @@ links:
 #  QQ:
 #  Weibo:
 #  WeChat:
-  Github: https://gitee.com/adam_cchen
+  Github: https://github.com/adamcchen/
 
 # how links show: you have 2 choice--text or icon.
 links_text_enable: false
@@ -69,7 +69,7 @@ post_copyright_author_enable: true
 post_copyright_permalink_enable: true
 post_copyright_license_enable: true
 post_copyright_license_text: 文章版权归本人所有，欢迎转载，但未经作者同意必须保留此段声明，且在文章页面明显位置给出原文连接，否则保留追究法律责任的权利。
-post_copyright_slogan_enable: true
+post_copyright_slogan_enable: false
 post_copyright_slogan_text: 如果感觉时间过得太快时，你多半在正做的事情中体验到了真正的快乐~
 ## toc
 post_toc_enable: true
@@ -86,12 +86,12 @@ time_format: H:mm:ss
 
 # stylesheets loaded in the <head>
 stylesheets:
-  - /css/style.css
+  - /blog/css/style.css
 
 # scripts loaded in the end of the body
 scripts:
-  - /js/script.js
-  - /js/tocbot.min.js
+  - /blog/js/script.js
+  - /blog/js/tocbot.min.js
     # tscanlin/tocbot: Build a table of contents from headings in an HTML document.
     # https://github.com/tscanlin/tocbot
 
