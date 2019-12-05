@@ -185,7 +185,7 @@
 
                     
                         <span class="post-time">
-                        日期: <a href="#">December 5, 2019&nbsp;&nbsp;20:41:18</a>
+                        日期: <a href="#">December 5, 2019&nbsp;&nbsp;21:06:07</a>
                         </span>
                     
                     
@@ -196,11 +196,11 @@
         <div class="post-content">
             <h1 id="为什么要搭建自己的博客"><a href="#为什么要搭建自己的博客" class="headerlink" title="为什么要搭建自己的博客"></a>为什么要搭建自己的博客</h1><p>在查阅资料的时候，接触到了一个牛人的博客：<a href="http://aicdg.com" target="_blank" rel="noopener">菊长的菊花田</a>，让人眼前一亮。遂心生“歹意”，势要搭建一个自己的博客。</p>
 <p><strong>牛人都有自己的博客，那我也要整一个。</strong></p>
-<p>经调查，前面提到的牛人使用的方案是：<strong><a href="http://jekyllcn.com/docs/home/" target="_blank" rel="noopener">Jekyll</a>+GitHub</strong>，除此之外还了解到另外一个方案：<strong><a href="https://hexo.io/zh-cn/docs/" target="_blank" rel="noopener">Hexo</a>+Github+<a href="https://docs.travis-ci.com" target="_blank" rel="noopener">Travis-ci</a></strong>。二者我都尝试搭建了一下，最后选择了后者，仅仅是因为折腾Hexo花费的时间比较多，导致对其更加了解一些。</p>
-<p>点击<a href="https://adamcchen.github.io/blog/">这里</a>查看我使用Hexo+Github+Travis-ci方案搭建的博客。</p>
-<h1 id="Jekyll-Github"><a href="#Jekyll-Github" class="headerlink" title="Jekyll+Github"></a>Jekyll+Github</h1><p>那个牛人使用的Jekyll模板叫<a href="https://github.com/victorvoid/space-jekyll-template" target="_blank" rel="noopener">Space</a>，我把这个模板Fork到自己的<a href="https://github.com/adamcchen/lvluo" target="_blank" rel="noopener">Github</a>仓库，然后修改<a href="https://github.com/adamcchen/lvluo/blob/master/_config.yml" target="_blank" rel="noopener">_config.yml</a>，最后在这个仓库的<a href="https://github.com/adamcchen/lvluo/settings" target="_blank" rel="noopener">GitHub Pages配置</a>就可以看到你的博客链接。</p>
+<p>经调查，前面提到的牛人使用的方案是：<strong><a href="http://jekyllcn.com/docs/home/" target="_blank" rel="noopener">Jekyll</a>+GitHub</strong>，除此之外还了解到另外一个方案：<strong><a href="https://hexo.io/zh-cn/docs/" target="_blank" rel="noopener">Hexo</a>+GitHub+<a href="https://docs.travis-ci.com" target="_blank" rel="noopener">Travis-ci</a></strong>。二者我都尝试搭建了一下，最后选择了后者，仅仅是因为折腾Hexo花费的时间比较多，导致对其更加了解一些。</p>
+<p>点击<a href="https://adamcchen.github.io/blog/">这里</a>查看我使用Hexo+GitHub+Travis-ci方案搭建的博客。</p>
+<h1 id="Jekyll-Github"><a href="#Jekyll-Github" class="headerlink" title="Jekyll+Github"></a>Jekyll+Github</h1><p>那个牛人使用的Jekyll模板叫<a href="https://github.com/victorvoid/space-jekyll-template" target="_blank" rel="noopener">Space</a>，我把这个模板<br>Fork到自己的<a href="https://github.com/adamcchen/lvluo" target="_blank" rel="noopener">Github</a>仓库，然后修改<a href="https://github.com/adamcchen/lvluo/blob/master/_config.yml" target="_blank" rel="noopener">_config.yml</a>，最后在这个仓库的<a href="https://github.com/adamcchen/lvluo/settings" target="_blank" rel="noopener">GitHub Pages配置</a>就可以看到你的博客链接。</p>
 <p><strong>注：</strong>我需要修改_config.yml的原因是我把这个仓库的名字改掉了。</p>
-<h2 id="修改仓库名字"><a href="#修改仓库名字" class="headerlink" title="修改仓库名字"></a>修改仓库名字</h2><p>很多地方建议将博客的仓库名字改为<code>[你的GitHub用户名].github.io</code>，这样做的好处是博客链接地址变得更简明，为：<a href="https://adamcchen.github.io(adamcchen是我的用户名)。">https://adamcchen.github.io(adamcchen是我的用户名)。</a></p>
+<h2 id="修改仓库名字"><a href="#修改仓库名字" class="headerlink" title="修改仓库名字"></a>修改仓库名字</h2><p>很多地方建议将博客的仓库名字改为<code>[你的GitHub用户名].github.io</code>，这样做的好处是博客链接地址变得更简明，为：<a href="https://adamcchen.github.io">https://adamcchen.github.io</a> (adamcchen是我的用户名)。</p>
 <p>如果仓库名不采用上述形式，如改为：lvluo，那么博客链接地址会变为：<a href="https://adamcchen.github.io/lvluo">https://adamcchen.github.io/lvluo</a> ，并且需要修改<code>_config.yml</code>的<code>baseurl</code>和<code>url</code>配置。</p>
 <h2 id="gh-pages分支"><a href="#gh-pages分支" class="headerlink" title="gh-pages分支"></a>gh-pages分支</h2><p>比较细心的童鞋在仓库的GitHub Pages配置项会发现GitHub Pages服务的源分支为gh-pages，当你打开gh-pages分支，原来Jekyll生成的静态网页都在这个分支。所以GitHub Pages服务的处理流程应该是这样的：</p>
 <ol>
@@ -209,7 +209,18 @@
 <li>将静态网页提交到gh-pages分支</li>
 </ol>
 <p>当你打开博客链接，访问的就是gh-pages分支的文件。</p>
-<h1 id="Hexo-Github-Travis-ci"><a href="#Hexo-Github-Travis-ci" class="headerlink" title="Hexo+Github+Travis-ci"></a>Hexo+Github+Travis-ci</h1>
+<h1 id="Hexo-Github-Travis-ci"><a href="#Hexo-Github-Travis-ci" class="headerlink" title="Hexo+Github+Travis-ci"></a>Hexo+Github+Travis-ci</h1><p>使用Hexo生成一个博客工程并上传到GitHub后，我很自然地也按照相同的<a href="https://hexo.io/zh-cn/docs/github-pages" target="_blank" rel="noopener">套路</a>操作。但是却遇到一个奇怪的问题：GitHub Pages配置项默认选择的是master分支，而不能选择gh-pages分支，这样就导致访问博客链接总是显示404。</p>
+<p>在解决这个问题之前，我们猜测一下这个方案的“套路”是怎样的：</p>
+<ol>
+<li>我们在仓库的master分支提交了新的Markdown文件，也就是新的博客文章</li>
+<li>Travis-ci检测到有新的提交，则触发命令：<code>hexo generate</code>，生成静态网页</li>
+<li>将静态网页提交到gh-pages分支</li>
+</ol>
+<p>可以看到，这个方案需要使用Travis-ci来完成生成静态网页和更新gh-pages分支的工作，而使用Jekyll的时候是GitHub Pages服务自动完成的。也就是说，GitHub Pages默认支持的是Jekyll。</p>
+<p>所以，当我们把仓库名字改为<code>[你的GitHub用户名].github.io</code>时，GitHub Pages服务认为这使用的是Jekyll，然而实际上是Hexo，于是出现了问题。</p>
+<p><strong>解决办法是：修改仓库名字。</strong></p>
+<p>修改了仓库名字之后，GitHub Pages配置项就又可以看到我们熟悉的gh-pages分支了。</p>
+
         </div>
 
         
@@ -223,7 +234,7 @@
                 
                     <p class="copyright-item">
                         <span>原文链接:</span>
-                        <span><a href="https://adamcchen.github.io/blog/2019/12/05/%E6%90%AD%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84%E5%8D%9A%E5%AE%A2/">https://adamcchen.github.io/blog/2019/12/05/%E6%90%AD%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84%E5%8D%9A%E5%AE%A2/</a></span>
+                        <span><a href="https://adamcchen.github.io/blog/2019/12/05/build-my-blog/">https://adamcchen.github.io/blog/2019/12/05/build-my-blog/</a></span>
                     </p>
                 
                 
@@ -255,8 +266,8 @@
         </section>
         <section class="post-nav">
             
-                <a class="prev" rel="prev" href="/blog/2019/12/05/update-git-repo-remote-url/">修改本地仓库所对应的远程仓库地址</a>
             
+            <a class="next" rel="next" href="/blog/2019/12/05/hello-world/">Hello World</a>
             
         </section>
 
