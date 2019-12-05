@@ -14,7 +14,7 @@ timezone: Asia/Chongqing
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
 url: https://adamcchen.github.io/blog/
-root: /blog
+root: /
 permalink: :year/:month/:day/:title/
 permalink_defaults:
 pretty_urls:
@@ -97,4 +97,4 @@ theme: chic
 deploy:
   type: git
   repo: https://github.com/adamcchen/blog.git
-  branch: gh-pages
+  branh: gh-pages
