@@ -3,10 +3,10 @@ navname: AGPU
 
 # navigatior items
 nav:
-  Posts: /blog/archives
-  Categories: /blog/category
-  Tags: /blog/tag
-  About: /blog/about
+  Posts: /archives
+  Categories: /category
+  Tags: /tag
+  About: /about
 
 # favicon
 favicon: /favicon.ico
@@ -23,7 +23,7 @@ avatar: /image/avatar.jpeg
 ## Complete url after key words.
 ## Unused key can be commented out.
 links:
-  Blog: /blog/archives
+  Blog: /archives
 #  Category:
 #  Tags: 
 #  Link:
