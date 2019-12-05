@@ -13,8 +13,8 @@ timezone: Asia/Chongqing
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
-url: http://adam_cchen.gitee.io/blog
-root: /blog
+url: https://adamcchen.github.io/
+root: /
 permalink: :year/:month/:day/:title/
 permalink_defaults:
 pretty_urls:
@@ -95,6 +95,6 @@ theme: chic
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
-  type: 
-  repo: 
-  branch: 
+  type: git
+  repo: https://github.com/adamcchen/adamcchen.github.io.git
+  branch: gh-pages
