@@ -95,6 +95,6 @@ theme: chic
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
-  type: git
-  repo: https://gitee.com/adam_cchen/blog.git
-  branch: master
+  type: 
+  repo: 
+  branch: 
