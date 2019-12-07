@@ -14,7 +14,7 @@
     <meta name="keywords" content="GPU">
 
 
-<title>Hello World | AGPU</title>
+<title>C++编程实践 | AGPU</title>
 
 
 
@@ -176,7 +176,7 @@
     
     <article class="post-wrap">
         <header class="post-header">
-            <h1 class="post-title">Hello World</h1>
+            <h1 class="post-title">C++编程实践</h1>
             
                 <div class="post-meta">
                     
@@ -185,7 +185,7 @@
 
                     
                         <span class="post-time">
-                        日期: <a href="#">December 5, 2019&nbsp;&nbsp;21:06:07</a>
+                        日期: <a href="#">December 8, 2019&nbsp;&nbsp;0:11:58</a>
                         </span>
                     
                     
@@ -194,19 +194,36 @@
         </header>
 
         <div class="post-content">
-            <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
+            <h1 id="阅读本文你将收获什么？"><a href="#阅读本文你将收获什么？" class="headerlink" title="阅读本文你将收获什么？"></a>阅读本文你将收获什么？</h1><p>知道更加简单、高效、可维护的C++代码是什么样的。</p>
+<h1 id="好的编程实践"><a href="#好的编程实践" class="headerlink" title="好的编程实践"></a>好的编程实践</h1><ul>
+<li><p>使用<code>const</code>替代<code>#define</code></p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// YES</span></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">double</span> PI = <span class="number">3.1415</span>;</span><br></pre></td></tr></table></figure>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// NO </span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> PI 3.1415</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>使用<code>iostream</code>替代<code>stdio.h</code></p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// YES</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br></pre></td></tr></table></figure>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// NO </span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>使用C++风格的类型转换</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// YES</span></span><br><span class="line"><span class="keyword">double</span> doubleValue = <span class="keyword">static_cast</span>&lt;<span class="keyword">double</span>&gt;(intValue);</span><br></pre></td></tr></table></figure>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// NO</span></span><br><span class="line"><span class="keyword">double</span> doubleValue = (<span class="keyword">double</span>)intValue;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>使用0替换NULL</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// YES</span></span><br><span class="line">ptr = <span class="number">0</span>;</span><br></pre></td></tr></table></figure>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// NO</span></span><br><span class="line">ptr = <span class="literal">NULL</span>;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>尽量多地使用const</p>
+</li>
+</ul>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// YES</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// NO</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// YES</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// NO</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// YES</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// NO</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// YES</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// NO</span></span><br></pre></td></tr></table></figure>
 
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+<h1 id="参看"><a href="#参看" class="headerlink" title="参看"></a>参看</h1><p>[1] <a href="https://github.com/google/styleguide" target="_blank" rel="noopener">Google开源项目风格指南英文版</a></p>
+<p>[2] <a href="https://github.com/zh-google-styleguide/zh-google-styleguide" target="_blank" rel="noopener">Google开源项目风格指南中文版</a></p>
+<p>[3] <a href="https://geosoft.no/development/cppstyle.html" target="_blank" rel="noopener">geosoft.no的编码风格指南英文版</a></p>
+<p>[4] <a href="http://isocpp.github.io/CppCoreGuidelines/CppCoreGuidelines" target="_blank" rel="noopener">C++ Core Guidelines</a></p>
 
         </div>
 
@@ -221,7 +238,7 @@
                 
                     <p class="copyright-item">
                         <span>原文链接:</span>
-                        <span><a href="https://adamcchen.github.io/blog/2019/12/05/hello-world/">https://adamcchen.github.io/blog/2019/12/05/hello-world/</a></span>
+                        <span><a href="https://adamcchen.github.io/blog/2019/12/07/c++-programming-practice-guidelines/">https://adamcchen.github.io/blog/2019/12/07/c++-programming-practice-guidelines/</a></span>
                     </p>
                 
                 
@@ -239,6 +256,10 @@
                 <span>标签:</span>
                 <span class="tag">
                     
+                    
+                        <a href="/blog/tags/C/"># C++</a>
+                    
+                        
                 </span>
             </div>
             <div>
@@ -249,10 +270,10 @@
         </section>
         <section class="post-nav">
             
-                <a class="prev" rel="prev" href="/blog/2019/12/05/build-my-blog/">搭建自己的博客</a>
+                <a class="prev" rel="prev" href="/blog/2019/12/07/build-my-blog/">搭建自己的博客</a>
             
             
-            <a class="next" rel="next" href="/blog/2019/12/05/simt/">单指令多线程</a>
+            <a class="next" rel="next" href="/blog/2019/12/07/hello-world/">Hello World</a>
             
         </section>
 

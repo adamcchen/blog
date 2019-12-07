@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+    <meta charset="UTF-8">
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <meta name="author" content="薇竹">
+
+
+
+
+    <meta name="keywords" content="GPU">
+
+
+<title>基于Tile的渲染 | AGPU</title>
+
+
+
+    <link rel="icon" href="/blog/favicon.ico">
+
+
+
+
+    <!-- stylesheets list from _config.yml -->
+    
+    <link rel="stylesheet" href="/blog/css/style.css">
+    
+
+
+
+    <!-- scripts list from _config.yml -->
+    
+    <script src="/blog/js/script.js"></script>
+    
+    <script src="/blog/js/tocbot.min.js"></script>
+    
+
+
+
+    
+    
+        
+    
+
+
+</head>
+<body>
+    <div class="wrapper">
+        <header>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo"><a href="/blog/">NO.1</a></div>
+            <div class="menu navbar-right">
+                
+                    <a class="menu-item" href="/blog/archives">文章</a>
+                
+                    <a class="menu-item" href="/blog/category">分类</a>
+                
+                    <a class="menu-item" href="/blog/tag">标签</a>
+                
+                    <a class="menu-item" href="/blog/about">关于</a>
+                
+                <input id="switch_default" type="checkbox" class="switch_default">
+                <label for="switch_default" class="toggleBtn"></label>
+            </div>
+
+        </div>
+    </nav>
+
+    
+    <nav class="navbar-mobile" id="nav-mobile">
+        <div class="container">
+            <div class="navbar-header">
+                <div>
+                    <a href="/blog/">NO.1</a><a id="mobile-toggle-theme">·&nbsp;Light</a>
+                </div>
+                <div class="menu-toggle" onclick="mobileBtn()">&#9776; Menu</div>
+            </div>
+            <div class="menu" id="mobile-menu">
+                
+                    <a class="menu-item" href="/blog/archives">Posts</a>
+                
+                    <a class="menu-item" href="/blog/category">Categories</a>
+                
+                    <a class="menu-item" href="/blog/tag">Tags</a>
+                
+                    <a class="menu-item" href="/blog/about">About</a>
+                
+            </div>
+        </div>
+    </nav>
+
+</header>
+<script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementsByClassName("menu-toggle")[0];
+        var mobileMenu = document.getElementById("mobile-menu");
+        if(toggleMenu.classList.contains("active")){
+           toggleMenu.classList.remove("active")
+            mobileMenu.classList.remove("active")
+        }else{
+            toggleMenu.classList.add("active")
+            mobileMenu.classList.add("active")
+        }
+    }
+</script>
+        <div class="main">
+            <div class="container">
+    
+    
+
+    
+    <article class="post-wrap">
+        <header class="post-header">
+            <h1 class="post-title">基于Tile的渲染</h1>
+            
+                <div class="post-meta">
+                    
+                        原文作者: <a itemprop="author" rel="author" href="/">薇竹</a>
+                    
+
+                    
+                        <span class="post-time">
+                        日期: <a href="#">December 8, 2019&nbsp;&nbsp;0:11:58</a>
+                        </span>
+                    
+                    
+                </div>
+            
+        </header>
+
+        <div class="post-content">
+            <p>TBR，Tile Based Rendering，基于Tile的渲染。</p>
+<p>TBR是一种渲染模式，除此之外，还有立即渲染模式和基于Tile的延迟渲染模式。</p>
+<p>传统的渲染模式是这样的：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">foreach(primitive)</span><br><span class="line">    foreach(fragment <span class="keyword">in</span> primitive)</span><br><span class="line">        render(fragment)</span><br></pre></td></tr></table></figure>
+
+<p>TBR的处理逻辑是这样的：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">foreach(tile)</span><br><span class="line">    foreach(primitive <span class="keyword">in</span> tile)</span><br><span class="line">        foreach(fragment <span class="keyword">in</span> primitive <span class="keyword">in</span> tile)</span><br><span class="line">            render(fragment)</span><br></pre></td></tr></table></figure>
+
+<p>可以看到，TBR要求先将一帧画面中的所有顶点染色完成然后生成多边形列表之后，才能进行光栅化和片段染色，否则遍历Tile里面的图元时会发生遍历不完全的情况。</p>
+<p>TBR使得深度模板和颜色缓冲区放在片上成为可能。因为一个Tile通常不大，如32x32，所以Tile对应的深度模板和颜色所占的存储也不大，可以使用片上存储来存放深度模板值和颜色值。</p>
+<p>将深度模板和颜色放在片上之后，访问速度相比之前要快得多，因为之前需要去访问显存。</p>
+
+        </div>
+
+        
+            <section class="post-copyright">
+                
+                    <p class="copyright-item">
+                        <span>原文作者:</span>
+                        <span>薇竹</span>
+                    </p>
+                
+                
+                    <p class="copyright-item">
+                        <span>原文链接:</span>
+                        <span><a href="https://adamcchen.github.io/blog/2019/12/07/tbr/">https://adamcchen.github.io/blog/2019/12/07/tbr/</a></span>
+                    </p>
+                
+                
+                    <p class="copyright-item">
+                        <span>版权声明:</span>
+                        <span>文章版权归本人所有，欢迎转载，但未经作者同意必须保留此段声明，且在文章页面明显位置给出原文连接，否则保留追究法律责任的权利。</span>
+                    </p>
+                
+                
+
+            </section>
+        
+        <section class="post-tags">
+            <div>
+                <span>标签:</span>
+                <span class="tag">
+                    
+                    
+                        <a href="/blog/tags/GPU/"># GPU</a>
+                    
+                        
+                </span>
+            </div>
+            <div>
+                <a href="javascript:window.history.back();" target="_blank" rel="noopener">返回</a>
+                <span>· </span>
+                <a href="/blog/">主页</a>
+            </div>
+        </section>
+        <section class="post-nav">
+            
+                <a class="prev" rel="prev" href="/blog/2019/12/07/simt/">单指令多线程</a>
+            
+            
+            <a class="next" rel="next" href="/blog/2019/12/07/update-git-repo-remote-url/">修改本地仓库所对应的远程仓库地址</a>
+            
+        </section>
+
+
+    </article>
+</div>
+
+        </div>
+        <footer id="footer" class="footer">
+    <div class="copyright">
+        <span>© 薇竹 | 由<a href="https://hexo.io" target="_blank">Hexo</a> & <a href="https://github.com/Siricee/hexo-theme-Chic" target="_blank">Chic</a>强力驱动</span>
+    </div>
+</footer>
+
+    </div>
+</body>
+</html>
