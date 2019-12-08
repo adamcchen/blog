@@ -1,6 +1,6 @@
 ---
 title: 单指令多线程
-date: {{ date }}
+date: 2019年11月20日
 tags: GPU
 ---
 

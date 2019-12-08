@@ -1,7 +1,7 @@
 ---
 title: 搭建自己的博客
-date: {{ date }}
-tags: hexo github travis-ci blog
+date: 2019年12月1日
+tags: [hexo, github, travis-ci, blog]
 ---
 # 为什么要搭建自己的博客
 在查阅资料的时候，接触到了一个牛人的博客：[菊长的菊花田](http://aicdg.com)，让人眼前一亮。遂心生“歹意”，势要搭建一个自己的博客。

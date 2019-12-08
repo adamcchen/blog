@@ -1,6 +1,6 @@
 ---
 title: C++编程实践
-date: {{ date }}
+date: 2019年12月7日
 tags: C++
 ---
 

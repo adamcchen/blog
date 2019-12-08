@@ -1,6 +1,6 @@
 ---
 title: 基于Tile的渲染
-date: {{ date }}
+date: 2019年11月28日
 tags: GPU
 ---
 

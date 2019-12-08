@@ -1,6 +1,6 @@
 ---
 title: 修改本地仓库所对应的远程仓库地址
-date: {{ date }}
+date: 2019年12月3日
 tags: GIT
 ---
 
