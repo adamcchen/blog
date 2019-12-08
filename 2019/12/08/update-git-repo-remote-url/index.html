@@ -14,7 +14,7 @@
     <meta name="keywords" content="GPU">
 
 
-<title>基于Tile的渲染 | AGPU</title>
+<title>修改本地仓库所对应的远程仓库地址 | AGPU</title>
 
 
 
@@ -114,7 +114,7 @@
     
     <article class="post-wrap">
         <header class="post-header">
-            <h1 class="post-title">基于Tile的渲染</h1>
+            <h1 class="post-title">修改本地仓库所对应的远程仓库地址</h1>
             
                 <div class="post-meta">
                     
@@ -123,7 +123,7 @@
 
                     
                         <span class="post-time">
-                        日期: <a href="#">December 8, 2019&nbsp;&nbsp;0:11:58</a>
+                        日期: <a href="#">December 8, 2019&nbsp;&nbsp;9:09:57</a>
                         </span>
                     
                     
@@ -132,18 +132,8 @@
         </header>
 
         <div class="post-content">
-            <p>TBR，Tile Based Rendering，基于Tile的渲染。</p>
-<p>TBR是一种渲染模式，除此之外，还有立即渲染模式和基于Tile的延迟渲染模式。</p>
-<p>传统的渲染模式是这样的：</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">foreach(primitive)</span><br><span class="line">    foreach(fragment <span class="keyword">in</span> primitive)</span><br><span class="line">        render(fragment)</span><br></pre></td></tr></table></figure>
-
-<p>TBR的处理逻辑是这样的：</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">foreach(tile)</span><br><span class="line">    foreach(primitive <span class="keyword">in</span> tile)</span><br><span class="line">        foreach(fragment <span class="keyword">in</span> primitive <span class="keyword">in</span> tile)</span><br><span class="line">            render(fragment)</span><br></pre></td></tr></table></figure>
-
-<p>可以看到，TBR要求先将一帧画面中的所有顶点染色完成然后生成多边形列表之后，才能进行光栅化和片段染色，否则遍历Tile里面的图元时会发生遍历不完全的情况。</p>
-<p>TBR使得深度模板和颜色缓冲区放在片上成为可能。因为一个Tile通常不大，如32x32，所以Tile对应的深度模板和颜色所占的存储也不大，可以使用片上存储来存放深度模板值和颜色值。</p>
-<p>将深度模板和颜色放在片上之后，访问速度相比之前要快得多，因为之前需要去访问显存。</p>
-
+            <p>我克隆了一个Github上的工程到本地，现在需要把本地仓库所指向的远程仓库指向Gitee的一个同样内容的仓库，因为Github太慢，而Gitee是国内的，速度快。操作如下：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> <span class="built_in">cd</span> /the/path/of/your/project</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> git remote rm origin</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> git remote add origin https://gitee.com/adam_cchen/hexo-theme-Chic.git</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> git checkout master</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> git branch --<span class="built_in">set</span>-upstream master origin/master</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> git pull</span></span><br></pre></td></tr></table></figure>
         </div>
 
         
@@ -157,13 +147,13 @@
                 
                     <p class="copyright-item">
                         <span>原文链接:</span>
-                        <span><a href="https://adamcchen.github.io/blog/2019/12/07/tbr/">https://adamcchen.github.io/blog/2019/12/07/tbr/</a></span>
+                        <span><a href="https://adamcchen.github.io/blog/2019/12/08/update-git-repo-remote-url/">https://adamcchen.github.io/blog/2019/12/08/update-git-repo-remote-url/</a></span>
                     </p>
                 
                 
                     <p class="copyright-item">
                         <span>版权声明:</span>
-                        <span>文章版权归本人所有，欢迎转载，但未经作者同意必须保留此段声明，且在文章页面明显位置给出原文连接，否则保留追究法律责任的权利。</span>
+                        <span>文章版权归本人所有，欢迎转载，但未经作者同意必须保留此段声明，且在文章页面明显位置给出原文链接，否则保留追究法律责任的权利。</span>
                     </p>
                 
                 
@@ -176,7 +166,7 @@
                 <span class="tag">
                     
                     
-                        <a href="/blog/tags/GPU/"># GPU</a>
+                        <a href="/blog/tags/GIT/"># GIT</a>
                     
                         
                 </span>
@@ -189,10 +179,8 @@
         </section>
         <section class="post-nav">
             
-                <a class="prev" rel="prev" href="/blog/2019/12/07/simt/">单指令多线程</a>
+                <a class="prev" rel="prev" href="/blog/2019/12/08/tbr/">基于Tile的渲染</a>
             
-            
-            <a class="next" rel="next" href="/blog/2019/12/07/update-git-repo-remote-url/">修改本地仓库所对应的远程仓库地址</a>
             
         </section>
 
