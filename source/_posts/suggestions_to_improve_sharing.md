@@ -6,7 +6,8 @@ tags:
 
 分享一个苹果给他人，自己就少了一个苹果
 分享一份知识给他人，自己对知识的理解更加深刻
-![20191208151640.png](https://i.loli.net/2019/12/08/TNK4gBLRrjol6Fy.png)
+
+{% asset_img suggestions_to_improve_sharing-0.png 学习内容平均留存率 %}
 
 > 授人以鱼不如授人以渔
 
