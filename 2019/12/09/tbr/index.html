@@ -14,7 +14,7 @@
     <meta name="keywords" content="GPU">
 
 
-<title>Hello World | AGPU</title>
+<title>基于Tile的渲染 | AGPU</title>
 
 
 
@@ -110,73 +110,11 @@
             <div class="container">
     
     
-        <div class="post-toc">
-    <div class="tocbot-list">
-    </div>
-    <div class="tocbot-list-menu">
-        <a class="tocbot-toc-expand" onclick="expand_toc()">Expand all</a>
-        <a onclick="go_top()">Back to top</a>
-        <a onclick="go_bottom()">Go to bottom</a>
-    </div>
-</div>
-
-<script>
-    document.ready(
-        function () {
-            tocbot.init({
-                tocSelector: '.tocbot-list',
-                contentSelector: '.post-content',
-                headingSelector: 'h1, h2, h3, h4, h5',
-                collapseDepth: 1,
-                orderedList: false,
-                scrollSmooth: true,
-            })
-        }
-    )
-
-    function expand_toc() {
-        var b = document.querySelector(".tocbot-toc-expand");
-        tocbot.init({
-            tocSelector: '.tocbot-list',
-            contentSelector: '.post-content',
-            headingSelector: 'h1, h2, h3, h4, h5',
-            collapseDepth: 6,
-            orderedList: false,
-            scrollSmooth: true,
-        });
-        b.setAttribute("onclick", "collapse_toc()");
-        b.innerHTML = "Collapse all"
-    }
-
-    function collapse_toc() {
-        var b = document.querySelector(".tocbot-toc-expand");
-        tocbot.init({
-            tocSelector: '.tocbot-list',
-            contentSelector: '.post-content',
-            headingSelector: 'h1, h2, h3, h4, h5',
-            collapseDepth: 1,
-            orderedList: false,
-            scrollSmooth: true,
-        });
-        b.setAttribute("onclick", "expand_toc()");
-        b.innerHTML = "Expand all"
-    }
-
-    function go_top() {
-        window.scrollTo(0, 0);
-    }
-
-    function go_bottom() {
-        window.scrollTo(0, document.body.scrollHeight);
-    }
-
-</script>
-    
 
     
     <article class="post-wrap">
         <header class="post-header">
-            <h1 class="post-title">Hello World</h1>
+            <h1 class="post-title">基于Tile的渲染</h1>
             
                 <div class="post-meta">
                     
@@ -185,7 +123,7 @@
 
                     
                         <span class="post-time">
-                        日期: <a href="#">December 8, 2019&nbsp;&nbsp;9:17:42</a>
+                        日期: <a href="#">December 9, 2019&nbsp;&nbsp;10:12:17</a>
                         </span>
                     
                     
@@ -194,19 +132,17 @@
         </header>
 
         <div class="post-content">
-            <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
+            <p>TBR，Tile Based Rendering，基于Tile的渲染。</p>
+<p>TBR是一种渲染模式，除此之外，还有立即渲染模式和基于Tile的延迟渲染模式。</p>
+<p>传统的渲染模式是这样的：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">foreach(primitive)</span><br><span class="line">    foreach(fragment <span class="keyword">in</span> primitive)</span><br><span class="line">        render(fragment)</span><br></pre></td></tr></table></figure>
 
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+<p>TBR的处理逻辑是这样的：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">foreach(tile)</span><br><span class="line">    foreach(primitive <span class="keyword">in</span> tile)</span><br><span class="line">        foreach(fragment <span class="keyword">in</span> primitive <span class="keyword">in</span> tile)</span><br><span class="line">            render(fragment)</span><br></pre></td></tr></table></figure>
 
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+<p>可以看到，TBR要求先将一帧画面中的所有顶点染色完成然后生成多边形列表之后，才能进行光栅化和片段染色，否则遍历Tile里面的图元时会发生遍历不完全的情况。</p>
+<p>TBR使得深度模板和颜色缓冲区放在片上成为可能。因为一个Tile通常不大，如32x32，所以Tile对应的深度模板和颜色所占的存储也不大，可以使用片上存储来存放深度模板值和颜色值。</p>
+<p>将深度模板和颜色放在片上之后，访问速度相比之前要快得多，因为之前需要去访问显存。</p>
 
         </div>
 
@@ -221,7 +157,7 @@
                 
                     <p class="copyright-item">
                         <span>原文链接:</span>
-                        <span><a href="https://adamcchen.github.io/blog/2019/12/08/hello-world/">https://adamcchen.github.io/blog/2019/12/08/hello-world/</a></span>
+                        <span><a href="https://adamcchen.github.io/blog/2019/12/09/tbr/">https://adamcchen.github.io/blog/2019/12/09/tbr/</a></span>
                     </p>
                 
                 
@@ -239,6 +175,10 @@
                 <span>标签:</span>
                 <span class="tag">
                     
+                    
+                        <a href="/blog/tags/GPU/"># GPU</a>
+                    
+                        
                 </span>
             </div>
             <div>
@@ -249,10 +189,10 @@
         </section>
         <section class="post-nav">
             
-                <a class="prev" rel="prev" href="/blog/2019/12/08/c++-programming-practice-guidelines/">C++编程实践</a>
+                <a class="prev" rel="prev" href="/blog/2019/12/09/suggestions_to_improve_sharing/">提高分享质量的建议</a>
             
             
-            <a class="next" rel="next" href="/blog/2019/12/08/simt/">单指令多线程</a>
+            <a class="next" rel="next" href="/blog/2019/12/09/update-git-repo-remote-url/">修改本地仓库所对应的远程仓库地址</a>
             
         </section>
 
