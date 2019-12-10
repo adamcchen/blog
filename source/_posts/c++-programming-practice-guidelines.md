@@ -1,6 +1,6 @@
 ---
 title: C++编程实践
-date: 2019年12月7日
+date: 2019-12-07 12:00:00
 tags: C++
 ---
 
@@ -8,6 +8,44 @@ tags: C++
 知道更加简单、高效、可维护的C++代码是什么样的。
 
 # 好的编程实践
+- 断行必须很明显
+```c++
+// YES
+```
+```c++
+// NO
+```
+
+- 断行必须很明显
+```c++
+// YES
+std::cout << std::hex <<
+             intValue << endl;
+```
+```c++
+// NO
+std::cout << std::hex <<
+intValue << endl;
+```
+
+- 使用`using std::cout`或者`std::cout`替代`using namespace std`
+```c++
+// YES
+using std::cout;
+using std::endl;
+
+cout << "hello world" << endl;
+``
+// YES
+std::cout << "hello world" << std::endl;
+``
+```c++
+// NO
+using namespace std;
+
+cout << "hello world" << endl;
+``
+
 - 使用`const`替代`#define`
 ```c++
 // YES
@@ -38,10 +76,10 @@ double doubleValue = static_cast<double>(intValue);
 double doubleValue = (double)intValue;
 ```
 
-- 使用0替换NULL
+- 使用nullptr替换NULL
 ```c++
-// YES
-ptr = 0;
+// YES, https://www.cnblogs.com/porter/p/3611718.html
+ptr = nullptr;
 ```
 ```c++
 // NO
@@ -49,28 +87,6 @@ ptr = NULL;
 ```
 
 - 尽量多地使用const
-
-
-```c++
-// YES
-
-// NO
-```
-```c++
-// YES
-
-// NO
-```
-```c++
-// YES
-
-// NO
-```
-```c++
-// YES
-
-// NO
-```
 
 # 参看
 [1] [Google开源项目风格指南英文版](https://github.com/google/styleguide)
