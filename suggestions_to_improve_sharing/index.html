@@ -14,7 +14,7 @@
     <meta name="keywords" content="GPU">
 
 
-<title>基于Tile的渲染 | AGPU</title>
+<title>提高分享质量的建议 | AGPU</title>
 
 
 
@@ -114,7 +114,7 @@
     
     <article class="post-wrap">
         <header class="post-header">
-            <h1 class="post-title">基于Tile的渲染</h1>
+            <h1 class="post-title">提高分享质量的建议</h1>
             
                 <div class="post-meta">
                     
@@ -123,7 +123,7 @@
 
                     
                         <span class="post-time">
-                        日期: <a href="#">December 9, 2019&nbsp;&nbsp;14:19:47</a>
+                        日期: <a href="#">December 10, 2019&nbsp;&nbsp;9:37:36</a>
                         </span>
                     
                     
@@ -132,17 +132,45 @@
         </header>
 
         <div class="post-content">
-            <p>TBR，Tile Based Rendering，基于Tile的渲染。</p>
-<p>TBR是一种渲染模式，除此之外，还有立即渲染模式和基于Tile的延迟渲染模式。</p>
-<p>传统的渲染模式是这样的：</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">foreach(primitive)</span><br><span class="line">    foreach(fragment <span class="keyword">in</span> primitive)</span><br><span class="line">        render(fragment)</span><br></pre></td></tr></table></figure>
+            <p>分享一个苹果给他人，自己就少了一个苹果<br>分享一份知识给他人，自己对知识的理解更加深刻</p>
+<img src="/blog/suggestions_to_improve_sharing/suggestions_to_improve_sharing-0.png" class="" title="学习内容平均留存率">
 
-<p>TBR的处理逻辑是这样的：</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">foreach(tile)</span><br><span class="line">    foreach(primitive <span class="keyword">in</span> tile)</span><br><span class="line">        foreach(fragment <span class="keyword">in</span> primitive <span class="keyword">in</span> tile)</span><br><span class="line">            render(fragment)</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>授人以鱼不如授人以渔</p>
+</blockquote>
+<p>分享知识的前提是自己对知识已经了然于胸<br>半桶水晃荡一下，哗啦哗啦响<br>要不得</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">浅尝辄止      | 烂熟于胸</span><br><span class="line">知道但讲不出来 | 知道并讲的出来</span><br><span class="line">-------------------------</span><br><span class="line">一无所知      | 不懂装懂</span><br><span class="line">不知道讲不出来 | 不知道讲的出来</span><br></pre></td></tr></table></figure>
 
-<p>可以看到，TBR要求先将一帧画面中的所有顶点染色完成然后生成多边形列表之后，才能进行光栅化和片段染色，否则遍历Tile里面的图元时会发生遍历不完全的情况。</p>
-<p>TBR使得深度模板和颜色缓冲区放在片上成为可能。因为一个Tile通常不大，如32x32，所以Tile对应的深度模板和颜色所占的存储也不大，可以使用片上存储来存放深度模板值和颜色值。</p>
-<p>将深度模板和颜色放在片上之后，访问速度相比之前要快得多，因为之前需要去访问显存。</p>
+<p>分享的形式可以多种多样：</p>
+<ul>
+<li>博客</li>
+<li>视频</li>
+<li>讨论</li>
+<li>讲座</li>
+</ul>
+<p>不论形式是什么，都需要<strong>用心准备</strong>，而用心准备的终极目的是<strong>让大家能Get到你所分享的知识</strong></p>
+<ul>
+<li><code>主题很大，准备需要花费很多时间？</code> - 那就多花点时间好好准备！</li>
+<li><code>主题很大，但时间又只有这么多？</code> - 那就分享框架性的东西，如有必要，分成一些列的分享！</li>
+<li><code>网上有一个PPT特别全，是否可以拿来直接用？</code> - 只要你看懂了，而且能给大家讲懂了！</li>
+<li><code>总结了一个特别小的知识点，觉得特别有用，可不可以拿来分享？</code> - Just share it！</li>
+<li><code>我有信心在白板上讲清楚这次的分享内容，可以不准备PPT吗？</code> - 当然可以！</li>
+<li>…</li>
+</ul>
+<p><strong>要么不讲，要么就好好讲，讲清楚，讲明白！</strong></p>
+<p>至于怎么讲，你随意<br>但有个建议：<strong>图文并茂你会比较轻松地讲清楚，讲明白</strong></p>
+<p><code>我好好准备了，但是还是没有讲好，怎么办？</code> - 没关系，总结经验，不断学习，下次讲的更好就行！<br><code>我没时间，只能准备成这个样子了</code> - 浪费了大家的时间：1小时/人 x 10人 = 10个小时！</p>
+<p>针对讲座形式的分享，从流程上应该是这样的：</p>
+<ol>
+<li><strong>准备</strong>。准备知识、准备PPT（如果有）等</li>
+<li><strong>在钉钉上发出会议邀请。</strong>如果有PPT的，需要将PPT附上，方便大家预习</li>
+<li><strong>在分享开始前十分钟内做好相关准备。</strong>如准备好演示环境等</li>
+<li><strong>发出Feedback请求。</strong>分享人在金手指上创建若干问题供大家反馈：WELL、LESS WELL、SUGGESTION、PUZZLE等</li>
+<li><strong>根据Feedback输出Action。</strong>分享人仔细阅读大家的反馈，优点继续发扬，缺点果断改掉</li>
+</ol>
+<p>以上分享流程一看就知道会占用分享者很多时间，所以不建议分享频率较高的小组内分享采用，而面向全公司的分享则很有必要<br>至于小组内的分享，个人以为，怎么高效怎么来</p>
+<p>如果你即将参加别人的分享讲座，那么你应该适当预习一下相关知识，这样“易吸收，效果好”，也能在Q&amp;A环节提出更有质量的问题<br>如果你已参加了别人的分享讲座，那么你应该给与诚恳的Feedback</p>
+<p>欢迎大家指正。</p>
 
         </div>
 
@@ -157,7 +185,7 @@
                 
                     <p class="copyright-item">
                         <span>原文链接:</span>
-                        <span><a href="https://adamcchen.github.io/blog/2019/12/09/tbr/">https://adamcchen.github.io/blog/2019/12/09/tbr/</a></span>
+                        <span><a href="https://adamcchen.github.io/blog/suggestions_to_improve_sharing/">https://adamcchen.github.io/blog/suggestions_to_improve_sharing/</a></span>
                     </p>
                 
                 
@@ -175,10 +203,6 @@
                 <span>标签:</span>
                 <span class="tag">
                     
-                    
-                        <a href="/blog/tags/GPU/"># GPU</a>
-                    
-                        
                 </span>
             </div>
             <div>
@@ -189,8 +213,8 @@
         </section>
         <section class="post-nav">
             
+                <a class="prev" rel="prev" href="/blog/simt/">单指令多线程</a>
             
-            <a class="next" rel="next" href="/blog/2019/12/09/update-git-repo-remote-url/">修改本地仓库所对应的远程仓库地址</a>
             
         </section>
 
