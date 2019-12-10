@@ -185,7 +185,7 @@
 
                     
                         <span class="post-time">
-                        日期: <a href="#">December 10, 2019&nbsp;&nbsp;9:42:25</a>
+                        日期: <a href="#">December 7, 2019&nbsp;&nbsp;12:00:00</a>
                         </span>
                     
                     
@@ -196,8 +196,16 @@
         <div class="post-content">
             <h1 id="阅读本文你将收获什么？"><a href="#阅读本文你将收获什么？" class="headerlink" title="阅读本文你将收获什么？"></a>阅读本文你将收获什么？</h1><p>知道更加简单、高效、可维护的C++代码是什么样的。</p>
 <h1 id="好的编程实践"><a href="#好的编程实践" class="headerlink" title="好的编程实践"></a>好的编程实践</h1><ul>
-<li><p>使用<code>const</code>替代<code>#define</code></p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// YES</span></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">double</span> PI = <span class="number">3.1415</span>;</span><br></pre></td></tr></table></figure>
+<li><p>断行必须很明显</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// YES</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// NO</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>断行必须很明显</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// YES</span></span><br><span class="line"><span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; <span class="built_in">std</span>::hex &lt;&lt;</span><br><span class="line">             intValue &lt;&lt; <span class="built_in">endl</span>;</span><br></pre></td></tr></table></figure>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// NO</span></span><br><span class="line"><span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; <span class="built_in">std</span>::hex &lt;&lt;</span><br><span class="line">intValue &lt;&lt; <span class="built_in">endl</span>;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>使用<code>using std::cout</code>或者<code>std::cout</code>替代<code>using namespace std</code></p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// YES</span></span><br><span class="line"><span class="keyword">using</span> <span class="built_in">std</span>::<span class="built_in">cout</span>;</span><br><span class="line"><span class="keyword">using</span> <span class="built_in">std</span>::<span class="built_in">endl</span>;</span><br><span class="line"></span><br><span class="line"><span class="built_in">cout</span> &lt;&lt; <span class="string">"hello world"</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">``</span><br><span class="line"><span class="comment">// YES</span></span><br><span class="line"><span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; <span class="string">"hello world"</span> &lt;&lt; <span class="built_in">std</span>::<span class="built_in">endl</span>;</span><br><span class="line">``</span><br><span class="line">```c++</span><br><span class="line"><span class="comment">// NO</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="built_in">cout</span> &lt;&lt; <span class="string">"hello world"</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">``</span><br><span class="line"></span><br><span class="line">- 使用`<span class="keyword">const</span>`替代`<span class="meta">#<span class="meta-keyword">define</span>`</span></span><br><span class="line">```c++</span><br><span class="line"><span class="comment">// YES</span></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">double</span> PI = <span class="number">3.1415</span>;</span><br></pre></td></tr></table></figure>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// NO </span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> PI 3.1415</span></span><br></pre></td></tr></table></figure>
 </li>
 <li><p>使用<code>iostream</code>替代<code>stdio.h</code></p>
@@ -208,18 +216,13 @@
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// YES</span></span><br><span class="line"><span class="keyword">double</span> doubleValue = <span class="keyword">static_cast</span>&lt;<span class="keyword">double</span>&gt;(intValue);</span><br></pre></td></tr></table></figure>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// NO</span></span><br><span class="line"><span class="keyword">double</span> doubleValue = (<span class="keyword">double</span>)intValue;</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>使用0替换NULL</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// YES</span></span><br><span class="line">ptr = <span class="number">0</span>;</span><br></pre></td></tr></table></figure>
+<li><p>使用nullptr替换NULL</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// YES, https://www.cnblogs.com/porter/p/3611718.html</span></span><br><span class="line">ptr = <span class="literal">nullptr</span>;</span><br></pre></td></tr></table></figure>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// NO</span></span><br><span class="line">ptr = <span class="literal">NULL</span>;</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>尽量多地使用const</p>
 </li>
 </ul>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// YES</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// NO</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// YES</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// NO</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// YES</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// NO</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// YES</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// NO</span></span><br></pre></td></tr></table></figure>
-
 <h1 id="参看"><a href="#参看" class="headerlink" title="参看"></a>参看</h1><p>[1] <a href="https://github.com/google/styleguide" target="_blank" rel="noopener">Google开源项目风格指南英文版</a></p>
 <p>[2] <a href="https://github.com/zh-google-styleguide/zh-google-styleguide" target="_blank" rel="noopener">Google开源项目风格指南中文版</a></p>
 <p>[3] <a href="https://geosoft.no/development/cppstyle.html" target="_blank" rel="noopener">geosoft.no的编码风格指南英文版</a></p>
@@ -270,10 +273,10 @@
         </section>
         <section class="post-nav">
             
-                <a class="prev" rel="prev" href="/blog/update-git-repo-remote-url/">修改本地仓库所对应的远程仓库地址</a>
+                <a class="prev" rel="prev" href="/blog/suggestions_to_improve_sharing/">提高分享质量的建议</a>
             
             
-            <a class="next" rel="next" href="/blog/hello-world/">Hello World</a>
+            <a class="next" rel="next" href="/blog/update-git-repo-remote-url/">修改本地仓库所对应的远程仓库地址</a>
             
         </section>
 
