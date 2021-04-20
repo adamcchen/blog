@@ -9,13 +9,13 @@ tags: [hexo, github, travis-ci, blog]
 
 **牛人都有自己的博客，那我也要整一个。**
 
-经调查，前面提到的牛人使用的方案是：**[Jekyll](http://jekyllcn.com/docs/home/)+GitHub**，除此之外还了解到另外一个方案：**[Hexo](https://hexo.io/zh-cn/docs/)+GitHub+[Travis-ci](https://docs.travis-ci.com)**。二者我都尝试搭建了一下，最后选择了后者，仅仅是因为折腾Hexo花费的时间比较多，导致对其更加了解一些。
+经调查，前面提到的牛人使用的方案是： **[Jekyll](http://jekyllcn.com/docs/home/) + GitHub**，除此之外还了解到另外一个方案：**[Hexo](https://hexo.io/zh-cn/docs/) + GitHub + [Travis-ci](https://docs.travis-ci.com)**。二者我都尝试搭建了一下，最后选择了后者，仅仅是因为折腾Hexo花费的时间比较多，导致对其更加了解一些。
 
-点击[这里](https://adamcchen.github.io/blog/)查看我使用Hexo+GitHub+Travis-ci方案搭建的博客。
+点击 [这里](https://adamcchen.github.io/blog/) 查看我使用Hexo+GitHub+Travis-ci方案搭建的博客。
 
 # Jekyll+Github
-那个牛人使用的Jekyll模板叫[Space](https://github.com/victorvoid/space-jekyll-template)，我把这个模板
-Fork到自己的[Github](https://github.com/adamcchen/lvluo)仓库，然后修改[_config.yml](https://github.com/adamcchen/lvluo/blob/master/_config.yml)，最后在这个仓库的[GitHub Pages配置](https://github.com/adamcchen/lvluo/settings)就可以看到你的博客链接。
+那个牛人使用的Jekyll模板叫 [Space](https://github.com/victorvoid/space-jekyll-template) ，我把这个模板
+Fork到自己的 [Github](https://github.com/adamcchen/lvluo) 仓库，然后修改 [_config.yml](https://github.com/adamcchen/lvluo/blob/master/_config.yml) ，最后在这个仓库的 [GitHub Pages配置](https://github.com/adamcchen/lvluo/settings) 就可以看到你的博客链接。
 
 **注：**我需要修改_config.yml的原因是我把这个仓库的名字改掉了。
 
@@ -33,7 +33,7 @@ Fork到自己的[Github](https://github.com/adamcchen/lvluo)仓库，然后修�
 当你打开博客链接，访问的就是gh-pages分支的文件。
 
 # Hexo+Github+Travis-ci
-使用Hexo生成一个博客工程并上传到GitHub后，我很自然地也按照相同的[套路](https://hexo.io/zh-cn/docs/github-pages)操作。但是却遇到一个奇怪的问题：GitHub Pages配置项默认选择的是master分支，而不能选择gh-pages分支，这样就导致访问博客链接总是显示404。
+使用Hexo生成一个博客工程并上传到GitHub后，我很自然地也按照相同的 [套路](https://hexo.io/zh-cn/docs/github-pages) 操作。但是却遇到一个奇怪的问题：GitHub Pages配置项默认选择的是master分支，而不能选择gh-pages分支，这样就导致访问博客链接总是显示404。
 
 在解决这个问题之前，我们猜测一下这个方案的“套路”是怎样的：
 1. 我们在仓库的master分支提交了新的Markdown文件，也就是新的博客文章
